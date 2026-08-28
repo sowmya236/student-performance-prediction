@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Performance Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>🎓 Student Performance Prediction</h1>
+
+        <p class="subtitle">
+            AI/ML Based Student Marks Prediction
+        </p>
+
+
+        <!-- ================= FORM ================= -->
+
+        <form id="predictionForm">
+
+            <div class="form-group">
+
+                <label for="student_name">
+                    Student Name
+                </label>
+
+                <input
+                    type="text"
+                    id="student_name"
+                    placeholder="Enter student name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="study_hours">
+                    Study Hours Per Day
+                </label>
+
+                <input
+                    type="number"
+                    id="study_hours"
+                    min="0"
+                    max="24"
+                    placeholder="Example: 6"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="attendance">
+                    Attendance (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="attendance"
+                    min="0"
+                    max="100"
+                    placeholder="Example: 90"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="previous_marks">
+                    Previous Marks (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="previous_marks"
+                    min="0"
+                    max="100"
+                    placeholder="Example: 78"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="assignments">
+                    Assignments Completed (0-10)
+                </label>
+
+                <input
+                    type="number"
+                    id="assignments"
+                    min="0"
+                    max="10"
+                    placeholder="Example: 9"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="sleep_hours">
+                    Sleep Hours Per Day
+                </label>
+
+                <input
+                    type="number"
+                    id="sleep_hours"
+                    min="0"
+                    max="24"
+                    placeholder="Example: 8"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit" id="predictBtn">
+                Predict Performance
+            </button>
+
+            <button type="button" id="resetBtn">
+                Reset
+            </button>
+
+        </form>
+
+
+        <!-- ================= LOADING ================= -->
+
+        <div id="loading" class="loading">
+            Predicting...
+        </div>
+
+
+        <!-- ================= RESULT ================= -->
+
+        <div id="resultCard" class="result-card">
+
+            <h2>Prediction Result</h2>
+
+            <div class="score">
+                <span id="score">0</span>%
+            </div>
+
+
+            <div class="progress-container">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar">
+                </div>
+
+            </div>
+
+
+            <p>
+                Performance:
+                <strong id="category"></strong>
+            </p>
+
+
+            <p
+                id="recommendation"
+                class="recommendation">
+            </p>
+
+        </div>
+
+
+        <!-- ================= DOWNLOAD ================= -->
+
+        <button
+            type="button"
+            id="downloadBtn"
+            class="download-btn">
+
+            📥 Download Result
+
+        </button>
+
+
+        <!-- ================= ERROR ================= -->
+
+        <div
+            id="errorMessage"
+            class="error">
+        </div>
+
+
+        <!-- ================= HISTORY ================= -->
+
+        <div id="history" class="history">
+
+            <h2>📊 Prediction History</h2>
+
+            <div id="historyList"></div>
+
+            <button
+                type="button"
+                id="clearHistoryBtn">
+
+                🗑️ Clear History
+
+            </button>
+
+        </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
+
